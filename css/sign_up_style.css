@@ -1,0 +1,83 @@
+body {
+    margin: 100;
+    padding: 0;
+    background: url("../images/monash-login.jpg");
+    background-size: default;
+    background-position: center;
+    font-family: sans-serif;
+    color: black;
+}
+
+input[type=text]{
+    width: 90%;
+    padding: 15px;
+    margin: 10px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: white;
+
+}
+input[type=email]{
+    width: 90%;
+    padding: 15px;
+    margin: 10px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: white;
+
+}
+.column {
+    float: left;
+    width: 50%;
+}
+input[type=password]{
+    width: 90%;
+    padding: 15px;
+    margin: 17px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: white;
+    position: relative;
+    bottom: -2.8
+}
+
+
+#mylist  {
+    width:90%
+
+}
+#mylist option{
+    width:90%
+}
+
+.signup{
+    position: absolute;
+    right: 163;
+    bottom: 180;
+    font-size:15px;
+    font-family: sans-serif;
+    width: 170px;
+    
+    
+}
+
+.cancel{
+    position: absolute;
+    left: 100;
+    bottom: 180;
+    font-size:15px;
+    font-family: sans-serif;
+}
+
+select {
+    height: 40px;
+    width: 40px;
+}
+.dropdown{
+    height: 55px;
+}
+@media screen and (max-width:300px){
+    .cancel,.signup{
+      width: 100%;
+}
+}

@@ -1,0 +1,40 @@
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(../images/Preloader_3.gif) center no-repeat #fff;
+}
+
+
+select {
+        width: 15rem;
+        /*margin: 20px;*/
+        /*height: 45px;*/
+        text-align-last:center; /*for chrome*/
+        text-align: center; /*for firefox i think*/
+        border-width: 0px;
+    }
+select:focus {
+        min-width: 15rem;
+        width: auto;
+    }
+body {
+    background-image: url("../images/monash-background-new.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.new{
+  background :white;
+}
+.new:hover{
+  background: #C5CCCC;
+}
+

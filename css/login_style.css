@@ -1,0 +1,75 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: url("../images/monash-login.jpg");
+    background-size: 100% 100%;
+  
+    
+    font-family: sans-serif;
+}
+.loginbox{
+    width: 500px;
+    height: 500px;
+    background:transparent;
+    color: black;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 100px 90px;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 0%;
+    position:absolute;
+    top: -90px;
+    left: calc(52% - 50px);
+    margin-top: -5%;
+}
+
+h1{
+    margin:0;
+    padding: 0 0 10px;
+    text-align: center;
+    font-size: 22px;
+    position: absolute;
+    top: 15;
+    left: 60
+}
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+
+}
+.loginbox input[type="text"], input[type="password"]
+{
+    border:none;
+    border-bottom: 1px solid black;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: black;
+    font-size: 16px;
+}
+.signin {
+    position: absolute;
+    right: 100;
+    font-size: 16;
+    font-family: sans-serif;
+    
+}
+.newacc{
+    font-size: 16;
+    font-family: sans-serif;
+    
+}
+

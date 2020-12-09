@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/create_project.css">
+    <title>Create Project</title>
+
+
+
+</head>
+<body>
+    <!-- For loading animation overlay -->
+    <div class="se-pre-con"></div>
+
+<!--Navbar Code-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="d-flex flex-grow-1">
+        <span class="w-100 d-lg-none d-block"><!-- hidden spacer to center brand on mobile --></span>
+        <a class="navbar-brand d-none d-lg-inline-block" href="marker_page.html">
+            <img src="images/monashlogo.png" height="70">
+        </a>
+        <a class="navbar-brand-two mx-auto d-lg-none d-inline-block" href="marker_page.html">
+            <img src="images/monashlogo.png" height="70">
+        </a>
+        <div class="w-100 text-right">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse flex-grow-1" id="myNavbar">
+        <!-- <form class="form-inline">
+            <input class="form-control mr-sm-2 form-control-lg" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 btn-lg" type="submit">Search</button>
+        </form> -->
+        <ul class="navbar-nav ml-auto flex-nowrap">
+            <li class="nav-item">
+                <div class="dropdown"> <a class="nav-link m-2 dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <!--                       <a class="dropdown-item" href="#">Account</a> -->
+                        <a class="dropdown-item" onclick='window.location.href = "index.html";' href="javascript: logout();"  >Logout</a>
+                        <script>
+                            function logout(){
+                                console.log("logged out");
+                                firebase.auth().signOut().then(function() {
+                                }).catch(function(error) {
+                                });
+                            }
+                        </script>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="row no-gutters mt-4">
+    <div class="col-12 col-md-8">
+        <div class="container">
+            <h1>Create Project</h1>
+        </div>
+    </div>
+    <div class="col-12 col-md-4">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <i class="fa fa-refresh fa-spin" style="font-size: 24px; cursor: pointer" onClick="window.location.reload();" ></i>
+                    <script type="text/javascript">
+                        function display_ct() {
+                        var x = new Date()
+                         // date part ///
+                        var month=x.getMonth()+1;
+                        var day=x.getDate();
+                        var year=x.getFullYear();
+                        if (month <10 ){month='0' + month;}
+                        if (day <10 ){day='0' + day;}
+                        var x3= "Last update: " + day+'/'+month+'/'+year;
+                        // time part //
+                        var hour=x.getHours();
+                        var minute=x.getMinutes();
+                        var second=x.getSeconds();
+                        if(hour <10 ){hour='0'+hour;}
+                        if(minute <10 ) {minute='0' + minute; }
+                        if(second<10){second='0' + second;}
+                        var x3 = x3 + ' ' +  hour+':'+minute+':'+second
+                        document.getElementById('ct').innerHTML = x3; 
+                        }
+                        </script>
+                        <body onload=display_ct();>
+                        <span id='ct' ></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- for left module-->
+<div class="row no-gutters mt-2">
+    <div class="col-12 col-md-3 mt-2">
+        
+      </div>
+        
+    <div class="col-12 col-md-6 mt-2">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <form id="create-project-form">
+                            <!-- <div class ="row"> -->
+                            
+                                <!-- <div class="column"> -->
+                            <!-- <div class="container"> -->
+                                <div class="float-left" style="padding: 20px 00px 0px 10px">
+                                    <label for="group_name">Group Name</label><br>
+                                    <input type="text" id="group_name" name="Group Name"><br><br>
+
+                                    <label for="pname">Project Name</label><br>
+                                    <input type="text" id="pname" name="Project Name"><br> <br>
+
+                                    <label for="units">Units</label><br>
+                                    <select id="units" name="units" onchange="fetch_tutorial()">
+                                    <option value="" disabled selected hidden>Select unit</option>
+                                    </select>
+                                    <br>
+                                    <br>
+                                    <label for="tutorial_groups">Tutorial group</label><br>
+                                    <select id="tutorial_groups" name="tutorial_groups">
+                                    <option value="" disabled selected hidden>Select tutorial group</option>
+                                    </select>
+                                    <br>
+                                    <br>
+                                </div>
+                            <!-- </div> -->
+
+                                <!-- </div> -->
+                                <!-- <div class="column"> -->
+                            <!-- <div class="container"> -->
+                                <div class="float-right" style="padding: 20px 10px 0px 0px">
+                                    <label for="start_date">Start Date</label><br>
+                                    <input type="date" id="start_date" name="start_date"><br><br>
+
+                                    <label for="due_date">Due Date</label><br>
+                                    <input type="date" id="due_date" name="due date"><br><br>
+
+                                    <label for="student_email">Student Email(s)</label><br>
+                                    
+                                    <input type="text" id="student_email" name="Student Email">
+                                    <p style="font-size: 13px;"><i>*Use space to separate students' emails*</i></p>
+
+                                    <br>
+                                    <br>
+                                    <br>
+                                        <div class="float-right">
+                                            <button type ="submit" class="btn btn-primary" class ="create">Create Project </button>
+
+                                            <button class="btn btn-secondary" type="button"  class="cancel" onclick='window.location.href = "marker_page.html";'> Cancel</button>
+                                        </div>
+
+                                </div>
+                            <!-- </div> -->
+                            <!-- </div> -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-12 col-md-3 mt-2">
+</div>
+<!-- Must include these scripts when you are using different HTML file -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+<!-- Firebase libraries we are using -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyB6jAibOyJrEeV9tX298L5aXs-TWX2ldP4",
+        authDomain: "studenttracker-391cc.firebaseapp.com",
+        databaseURL: "https://studenttracker-391cc.firebaseio.com",
+        projectId: "studenttracker-391cc",
+        storageBucket: "studenttracker-391cc.appspot.com",
+        messagingSenderId: "63348104001",
+        appId: "1:63348104001:web:3153b6e40ba409aabd5fc0",
+        measurementId: "G-GHV8K2GCV5"
+    };
+    firebase.initializeApp(firebaseConfig);
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+</script>
+<script src="scripts/create_projects.js"></script>
+<script src="scripts/fetch_units.js"></script>
+<script>
+    async function fetch_tutorial(){
+        const unit = document.querySelector('#units');
+        var unit_doc= await db.collection("private").doc(unit.value).get();
+        var unit_data=await unit_doc.get('tutorial');
+        let output = "";
+        if(unit_data.length !== 0){
+            unit_data.forEach(function(tutorial_group) {
+                output +="<option value="+ tutorial_group+">"+tutorial_group+"</option>";
+            });
+        }
+        else{
+            console.log(unit.value+" does not have any tutorial groups")
+            alert(unit.value+" does not have any tutorial groups")
+        }
+        document.getElementById("tutorial_groups").innerHTML = output;
+
+    }
+</script>
+
+<!-- For loading overlay -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+<script>
+    // Wait for window load
+     // $(window).on('load', function(){
+    $(document).ready(function() {
+        // $(window).on('load', function() {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");;
+    });
+</script>
+
+</body>
+</html>

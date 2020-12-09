@@ -1,0 +1,83 @@
+<html>
+<head>
+    <title>Signup form</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/sign_up_style.css">
+</head>
+<body>
+<form id="signup-form">
+    <h1 style="text-align: center;">Student Time/ Task Tracker</h1>
+    <div class="row">
+        <div class="clearfix">
+            <div class="column">
+
+                <label for="name"><b>Name</b></label><br>
+                <input type="text" placeholder="Enter Your Name" name="name" id="name" required><br>
+
+                <label for="email"><b>Email</b></label> <br>
+                <input type="email" placeholder="Enter Your Email" name="email" id="email" required>
+
+                <label for="id"><b>Student/Lecturer ID</b></label>
+                <input type="text" placeholder="Enter Your ID" name="id" id="id" required>
+
+
+            </div>
+            <div class="column">
+                <div class="dropdown"><br>
+                    <label for="mylist"><b>Role:</b></label> <br>
+                    <select style='font-size:15px; font-family:"sans-serif", sans-serif; ' id="mylist">
+                        <option value="student"> Student</option>
+                        <option value="marker"> Marker</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+                <label for="psw"><b>Password</b></label>
+                <input type="password" placeholder="Enter New Password" name="psw" id="psw" required><br>
+                <label for="cfm-psw"><b>Confirm Password</b></label>
+                <input type="password" placeholder="Enter Password Again" name="cfm-psw" id="cfm-psw" required>
+
+                <button class="btn btn-secondary" type="button" class="cancel"
+                        onclick='window.location.href = "index.html";'> Cancel
+                </button>
+                <button class="btn btn-secondary" type="submit" class="signup"> Create New Account</button>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+</div>
+<!-- Must include these scripts when you are using different HTML file -->
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-app.js"></script>
+
+<!-- Firebase libraries we are using -->
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.20.0/firebase-firestore.js"></script>
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyB6jAibOyJrEeV9tX298L5aXs-TWX2ldP4",
+        authDomain: "studenttracker-391cc.firebaseapp.com",
+        databaseURL: "https://studenttracker-391cc.firebaseio.com",
+        projectId: "studenttracker-391cc",
+        storageBucket: "studenttracker-391cc.appspot.com",
+        messagingSenderId: "63348104001",
+        appId: "1:63348104001:web:3153b6e40ba409aabd5fc0",
+        measurementId: "G-GHV8K2GCV5"
+    };
+    firebase.initializeApp(firebaseConfig);
+    // make auth and firestore references
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+</script>
+<script src="scripts/signup.js"></script>
+</body>
+</html>
