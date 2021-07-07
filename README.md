@@ -9,4 +9,11 @@ Members:
 <li>Tan Song Shun</li>
 <li>Marcus Lim Tau Whang</li>
   </ul>
-
+<br> 
+(Testing accounts to try the app: 
+<br>
+<ul>
+  <li>Student: Email: test@gmail.com  |   Password: test1234 </li>
+  <li>Lecturer: Email: test_lecturer@gmail.com  |   Password: test1234 )</li>
+  </ul>
+  
